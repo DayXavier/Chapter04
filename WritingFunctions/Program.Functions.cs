@@ -42,4 +42,80 @@ partial class Program
         }
         WriteLine($"CurrentCulture: {CultureInfo.CurrentCulture.DisplayName}");
     }
+
+    static string CardinalToOrdinal(uint number)
+    {
+        uint lastTwoDigits = number % 100;
+
+        switch (lastTwoDigits)
+        {
+            case 11: // Special case for 11th to 13th
+            case 12:
+            case 13:
+                return $"{number:N0}";
+            default:
+                uint lastDigit = number % 10;
+
+                string suffix = lastDigit switch
+                {
+                    1 => "st",
+                    2 => "nd",
+                    3 => "rd",
+                    _ => "th"
+                };
+
+                return $"{number:N0}{suffix}";
+        }
+    }
+
+    static void RunCardinalToOrdinal()
+    {
+        for (uint number = 1; number <= 1500; number++)
+        {
+            Write($"{CardinalToOrdinal(number)} ");
+        }
+        WriteLine();
+    }
+
+    static int Factorial(int number)
+    {
+        if (number < 0)
+        {
+            throw new ArgumentOutOfRangeException(message:
+                $"The factorial function is defind for non-negative integers only. Input: {number}",
+                paramName: nameof(number));
+        }
+        else if (number == 0)
+        {
+            return 1;
+        }
+        else
+        {
+            checked // for overflow
+            {
+                return number * Factorial(number - 1);
+            }
+        }
+    }
+
+    static void RunFactorial()
+    {
+
+        for (int i = -2; i <= 15; i++)
+        {
+            try
+            {
+                WriteLine($"{i}! = {Factorial(i):N0}");
+            }
+            catch (OverflowException)
+            {
+                WriteLine($"{i}! is too big for a 32-bit integer.");
+            }
+            catch (Exception ex)
+            {
+                WriteLine($"{i}! throws {ex.GetType()}: {ex.Message}");
+            }
+        }
+    }
+
 }

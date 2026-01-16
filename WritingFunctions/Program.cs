@@ -3,7 +3,7 @@
 
 #region Writing a function that returns a value
 
-ConfigureConsole(culture: "fr-FR");
+ConfigureConsole();
 
 decimal taxToPay = CalculateTax(amount: 149, twoLetterRegionCode: "FR");
 WriteLine($"you must pay {taxToPay:C} in tax.");
@@ -12,3 +12,16 @@ WriteLine($"you must pay {taxToPay:C} in tax.");
 // WriteLine($"You must pay {CalculateTax{amount: 149, twoLetterRegionCode: "FR"):C} in tax.");
 
 #endregion
+
+#region cardinal to ordinal function
+
+//RunCardinalToOrdinal();
+
+#endregion 
+
+#region Calculating factorials with recursion
+
+RunFactorial();
+
+#endregion
+
