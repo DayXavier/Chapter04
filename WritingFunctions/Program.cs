@@ -21,7 +21,12 @@ WriteLine($"you must pay {taxToPay:C} in tax.");
 
 #region Calculating factorials with recursion
 
-RunFactorial();
+//RunFactorial();
 
 #endregion
 
+#region Using lambdas in function implementations 
+
+//RunFibImperative();
+RunFibFunctional();
+#endregion

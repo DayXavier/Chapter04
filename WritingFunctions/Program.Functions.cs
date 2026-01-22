@@ -1,4 +1,5 @@
-﻿using System.Globalization; // To use CultureInfo
+﻿using System.Globalization;
+using System.Net.Http.Headers; // To use CultureInfo
 
 partial class Program
 {
@@ -43,6 +44,11 @@ partial class Program
         WriteLine($"CurrentCulture: {CultureInfo.CurrentCulture.DisplayName}");
     }
 
+    /// <summary>
+    /// Pass a 32-bit unsigned integer and it will be convertd into its ordinal equvalent.
+    /// </summary>
+    /// <param name="number">Number as a cardinal value e.g. 1, 2, 3, and so on.</param>
+    /// <returns>Number as an ordinal value e.g. 1st, 2nd, 3rd, and so on</returns>
     static string CardinalToOrdinal(uint number)
     {
         uint lastTwoDigits = number % 100;
@@ -52,7 +58,7 @@ partial class Program
             case 11: // Special case for 11th to 13th
             case 12:
             case 13:
-                return $"{number:N0}";
+                return $"{number:N0}th";
             default:
                 uint lastDigit = number % 10;
 
@@ -118,4 +124,52 @@ partial class Program
         }
     }
 
+    static int FibImperative(uint term)
+    {
+        if (term == 0)
+        {
+            throw new ArgumentOutOfRangeException();
+        }
+        else if (term == 1)
+        {
+            return 0;
+        }
+        else if (term == 2)
+        {
+            return 1;
+        }
+        else
+        {
+            return FibImperative(term - 1) + FibImperative(term - 2);
+        }
+    }
+
+
+    static void RunFibImperative()
+    {
+        for (uint i = 1; i <= 30; i++)
+        {
+            WriteLine("The {0} term of the Fibonacci sequence is {1:N0}.",
+                arg0: CardinalToOrdinal(i),
+                arg1: FibImperative(i));
+        }
+    }
+
+    static int FibFunctional(uint term) => term switch
+    {
+        0 => throw new ArgumentOutOfRangeException(),
+        1 => 0,
+        2 => 1,
+        _ => FibFunctional(term -1) + FibFunctional(term - 2)
+    };
+
+    static void RunFibFunctional()
+    {
+        for (uint i = 1; i <= 30; i++)
+        {
+            WriteLine("The {0} term of the Fibonacci sequence is {1:N0}.",
+                arg0: CardinalToOrdinal(i),
+                arg1: FibFunctional(i));  
+        }
+    }
 }
