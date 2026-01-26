@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WritingFunctions", "Writing
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugging", "Debugging\Debugging.csproj", "{73675D64-F630-4B5A-B823-626E24CD8F25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotReloading", "HotReloading\HotReloading.csproj", "{AFDCE4CD-C162-4AE7-A026-FD97D5192629}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{73675D64-F630-4B5A-B823-626E24CD8F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73675D64-F630-4B5A-B823-626E24CD8F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73675D64-F630-4B5A-B823-626E24CD8F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFDCE4CD-C162-4AE7-A026-FD97D5192629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFDCE4CD-C162-4AE7-A026-FD97D5192629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFDCE4CD-C162-4AE7-A026-FD97D5192629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFDCE4CD-C162-4AE7-A026-FD97D5192629}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
